@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import path
+from django.http import HttpResponseRedirect
+from diagnosis import views  # diagnosisアプリのビューをインポート
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('diagnose/', views.diagnose_view, name='diagnose'),
+    path('', lambda request: HttpResponseRedirect('/diagnose/')),
+    # 他のURLパターンもここに追加できます
 ]
