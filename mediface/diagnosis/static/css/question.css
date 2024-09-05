@@ -99,3 +99,10 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
+
+.header img {
+    max-width: 25%;  /* 画面幅に合わせて最大幅を設定 */
+    height: auto;     /* 高さを自動調整してアスペクト比を維持 */
+    display: block;   /* 画像をブロック要素として扱う */
+    margin: 0 auto;   /* 中央に配置 */
+}

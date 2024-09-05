@@ -23,9 +23,12 @@
 </head>
 
 <body>
+    <div class="header">
+        <img src="{% static 'images/logo.png' %}" alt="ロゴ">
+    </div>
     <h1>問診票</h1>
-    <a href="{% url 'diagnose' %}">チャットで診断する</a>
     <form method="POST" action="{% url 'question' %}">
+        <a href="{% url 'diagnose' %}">チャットで診断する</a>
         {% csrf_token %}
         <!-- 質問1 -->
         <p>1. あなたの年代を教えてください</p>
