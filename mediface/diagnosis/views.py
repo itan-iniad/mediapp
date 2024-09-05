@@ -17,3 +17,6 @@ def diagnose_view(request):
 
         return render(request, "diagnosis/result.html", {"diagnosis": html_diagnosis})
     return render(request, "diagnosis/diagnose.html")
+
+def mapapi_view(request):
+    return render(request, "diagnosis/mapapi.html")

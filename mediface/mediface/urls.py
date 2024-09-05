@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('diagnose/', views.diagnose_view, name='diagnose'),
     path('', lambda request: HttpResponseRedirect('/diagnose/')),
+    path("mapapi/", views.mapapi_view, name="mapapi")
     # 他のURLパターンもここに追加できます
 ]
