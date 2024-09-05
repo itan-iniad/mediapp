@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 import markdown
 from django.shortcuts import render
-from .rag_model import diagnose_with_rag  # llm_modelからdiagnose関数をインポート
+from .rag_model import diagnose_with_rag  # rag_modelからdiagnose関数をインポート
 
 # 診断を処理するビュー
 def diagnose_view(request):
