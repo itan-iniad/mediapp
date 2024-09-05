@@ -1,0 +1,106 @@
+/* 全体の基本スタイル設定 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* 青系の背景色 */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* コンテナのスタイル（中央配置） */
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 600px; /* パソコン向けに幅を広げる */
+    max-width: 100%; /* 画面サイズに応じてレスポンシブに */
+    margin: 20px;
+}
+
+/* ヘッダーのスタイル */
+h1 {
+    color: #007acc; /* 鮮やかな青 */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* フォームスタイル */
+form {
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 150px; /* パソコン向けに高さを広げる */
+    padding: 15px;
+    border: 2px solid #007acc; /* 青色の枠線 */
+    border-radius: 5px;
+    font-size: 1.2em;
+    resize: none;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #007acc; /* 鮮やかな青 */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* パソコン向けに幅を広げる */
+}
+
+button:hover {
+    background-color: #005a99; /* ホバー時に少し暗く */
+}
+
+/* 結果表示のスタイル */
+.result {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 600px; /* パソコン向けに幅を広げる */
+    max-width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.result p {
+    font-size: 1.5em;
+    color: #333;
+}
+
+a {
+    color: #007acc;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* メディアクエリ：小さい画面向けの調整 */
+@media (max-width: 800px) {
+    .container, .result {
+        width: 90%;
+    }
+
+    textarea {
+        height: 120px;
+    }
+
+    button {
+        font-size: 1em;
+    }
+}

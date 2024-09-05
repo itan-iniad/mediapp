@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>診断フォーム</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>症状を入力してください</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="symptoms" rows="5" cols="40" placeholder="症状を入力してください"></textarea>
+            <br><br>
+            <button type="submit">診断する</button>
+        </form>
+    </div>
+</body>
+</html>
