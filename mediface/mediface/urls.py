@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import path
+from diagnosis import views  # diagnosisアプリのビューをインポート
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+]
+
+
+urlpatterns = [
+    path('diagnose/', views.diagnose_view, name='diagnose'),
+    # 他のURLパターンもここに追加できます
 ]
