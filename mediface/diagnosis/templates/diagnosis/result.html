@@ -15,11 +15,14 @@
             <!-- ここでMarkdownから変換されたHTMLを表示 -->
             {{ diagnosis|safe }}
         </div>
-        <a href="{% url 'diagnose' %}">チャットでもう一度診断する</a>
-        <br>
-        <a href="{% url 'question' %}">問診票でもう一度診断する</a>
+        <div class="again">
+            <a href="{% url 'diagnose' %}">チャットでもう一度診断する</a>
+        </div>
+        <div class="again">
+            <a href="{% url 'question' %}">問診票でもう一度診断する</a>
+        </div>
 
-        <h2>近くの病院</h2>
+        <h2 style="margin-top: 1.5rem;">近くの病院</h2>
         <iframe src="{% url "mapapi" %}">
     </div>
 </body>

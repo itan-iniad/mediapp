@@ -1,3 +1,10 @@
+/* 全体にbox-sizingを適用 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* 全体の基本スタイル設定 */
 body {
     font-family: Arial, sans-serif;
@@ -38,6 +45,7 @@ form {
 
 textarea {
     width: 100%;
+    max-width: 100%; /* 最大幅をボタンと同じに設定 */
     height: 150px; /* パソコン向けに高さを広げる */
     padding: 15px;
     border: 2px solid #007acc; /* 青色の枠線 */
@@ -122,4 +130,13 @@ iframe {
     height: auto;     /* 高さを自動調整してアスペクト比を維持 */
     display: block;   /* 画像をブロック要素として扱う */
     margin: 0 auto;   /* 中央に配置 */
+}
+
+.question {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.again {
+    margin-top: 1rem;
 }
