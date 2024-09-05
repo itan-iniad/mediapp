@@ -22,8 +22,9 @@ from diagnosis import views  # diagnosisアプリのビューをインポート
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('diagnose/', views.diagnose_view, name='diagnose'),
+    path('diagnose/', views.chat_diagnose_view, name='diagnose'),
     path('', lambda request: HttpResponseRedirect('/diagnose/')),
-    path("mapapi/", views.mapapi_view, name="mapapi")
+    path("mapapi/", views.mapapi_view, name="mapapi"),
+    path("question/", views.question_diagnose_view, name="question"),
     # 他のURLパターンもここに追加できます
 ]

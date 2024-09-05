@@ -24,7 +24,9 @@
 
 <body>
     <h1>問診票</h1>
-    <form>
+    <a href="{% url 'diagnose' %}">チャットで診断する</a>
+    <form method="POST" action="{% url 'question' %}">
+        {% csrf_token %}
         <!-- 質問1 -->
         <p>1. あなたの年代を教えてください</p>
         <select name="age_group">
@@ -141,6 +143,10 @@
         <input type="checkbox" id="none" name="triggers" value="none">
         <label for="none">この中に該当なし</label><br>
         <input type="hidden" name="selected_triggers" id="selected_triggers" value="">
+        <!-- 質問10: 備考欄 -->
+        <p>10. 備考（自由入力）</p>
+        <textarea name="remarks" rows="4" cols="50" placeholder="その他の症状や気になる点があればご記入ください"></textarea>
+
         <script>
             // トリガーボタンの選択状態を管理
             const buttons = document.querySelectorAll('#triggers button');
