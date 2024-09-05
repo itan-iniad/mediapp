@@ -116,3 +116,10 @@ iframe {
         height: 300px; /* 小さい画面用に高さを調整 */
     }
 }
+
+.header img {
+    max-width: 50%;  /* 画面幅に合わせて最大幅を設定 */
+    height: auto;     /* 高さを自動調整してアスペクト比を維持 */
+    display: block;   /* 画像をブロック要素として扱う */
+    margin: 0 auto;   /* 中央に配置 */
+}
