@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <title>診断結果</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
     <div class="result">
         <h1>診断結果</h1>
@@ -19,4 +21,5 @@
         <iframe src="{% url "mapapi" %}">
     </div>
 </body>
+
 </html>

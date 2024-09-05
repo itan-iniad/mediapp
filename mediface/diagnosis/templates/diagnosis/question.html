@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問診票</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/question.css" %}">
+    <style>
+        button {
+            margin: 5px;
+            padding: 10px;
+            background-color: #F0F0F0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        button.selected {
+            background-color: #A0E0FF;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>問診票</h1>
+    <form>
+        <!-- 質問1 -->
+        <p>1. あなたの年代を教えてください</p>
+        <select name="age_group">
+            <option value="under_10">10歳以下</option>
+            <option value="10s">10代</option>
+            <option value="20s">20代</option>
+            <option value="30s">30代</option>
+            <option value="40s">40代</option>
+            <option value="50s">50代</option>
+            <option value="60s">60代</option>
+            <option value="70s">70代</option>
+            <option value="80_plus">80歳以上</option>
+        </select>
+        <!-- 質問2 -->
+        <p>2. 最も気になる症状を教えてください</p>
+        <select name="main_symptom">
+            <option value="stomachache">お腹が痛い</option>
+            <option value="fever">発熱</option>
+            <option value="fatigue">だるい</option>
+            <option value="headache">頭痛</option>
+            <option value="throat_pain">喉が痛い</option>
+            <option value="nausea">吐き気</option>
+            <option value="other">その他</option>
+        </select>
+        <!-- 質問3 -->
+        <p>3. この症状はいつからですか？</p>
+        <input type="text" name="symptom_duration" placeholder="○○日、週間、か月、年">
+        <!-- 質問4 -->
+        <p>4. 症状の現れ方について、一番近いものを選んでください</p>
+        <select name="symptom_onset">
+            <option value="sudden_severe">全く前触れもなく、ある瞬間から激しい症状が出始めた</option>
+            <option value="sudden_mild">急に症状が出始めた</option>
+            <option value="gradual">ゆっくり症状が出始めた</option>
+        </select>
+        <!-- 質問5 -->
+        <p>5. 症状について、最もつらかった時を1から10で表すとどれくらいの痛みでしたか？</p>
+        <input type="range" id="pain_scale" name="pain_scale" min="1" max="10" value="5"
+            oninput="updatePainValue(this.value)">
+        <span id="pain_value">5</span>
+        <script>
+            function updatePainValue(value) {
+                document.getElementById('pain_value').textContent = value;
+            }
+        </script>
+        <!-- 質問6 -->
+        <p>6. 症状はどれくらい続いていますか？</p>
+        <select name="symptom_duration_continuity">
+            <option value="seconds_minutes">一回につき数秒-数分</option>
+            <option value="minutes_hours">数分-数時間くらい</option>
+            <option value="hours_day">4-24時間くらい</option>
+            <option value="days">1-3日くらい</option>
+            <option value="constant">3回以上もしくはほぼ常に</option>
+        </select>
+        <!-- 質問7 -->
+        <p>7. 症状の変化として一番近いものは何ですか？</p>
+        <select name="symptom_change">
+            <option value="worse">悪化している</option>
+            <option value="no_change">改善も悪化もしていない</option>
+            <option value="improved_but_present">改善したがまだ残っている</option>
+            <option value="gone">改善し、現在はない</option>
+        </select>
+        <!-- 質問8 -->
+        <p>8. つぎのような症状はありますか？当てはまるものを【全て】選んでください。</p>
+        <input type="checkbox" id="fever_37_5" name="additional_symptoms" value="fever_37_5">
+        <label for="fever_37_5">体温が37.5℃以上</label><br>
+        <input type="checkbox" id="nausea_vomiting" name="additional_symptoms" value="nausea_vomiting">
+        <label for="nausea_vomiting">吐き気・嘔吐がある</label><br>
+        <input type="checkbox" id="dizziness" name="additional_symptoms" value="dizziness">
+        <label for="dizziness">めまい</label><br>
+        <input type="checkbox" id="numbness" name="additional_symptoms" value="numbness">
+        <label for="numbness">しびれや感覚のおかしさ</label><br>
+        <input type="checkbox" id="slurred_speech" name="additional_symptoms" value="slurred_speech">
+        <label for="slurred_speech">ろれつが回らない</label><br>
+        <input type="checkbox" id="half_paralysis" name="additional_symptoms" value="half_paralysis">
+        <label for="half_paralysis">体の左右どちらか半分が動かせない</label><br>
+        <input type="checkbox" id="eye_pain" name="additional_symptoms" value="eye_pain">
+        <label for="eye_pain">目の痛み</label><br>
+        <input type="checkbox" id="eye_redness" name="additional_symptoms" value="eye_redness">
+        <label for="eye_redness">白目に赤みがある</label><br>
+        <input type="checkbox" id="blurred_vision" name="additional_symptoms" value="blurred_vision">
+        <label for="blurred_vision">急に目が見えにくくなった</label><br>
+        <input type="checkbox" id="double_vision" name="additional_symptoms" value="double_vision">
+        <label for="double_vision">ものが二重に見える</label><br>
+        <input type="checkbox" id="throat_pain" name="additional_symptoms" value="throat_pain">
+        <label for="throat_pain">のどの痛み</label><br>
+        <input type="checkbox" id="fatigue" name="additional_symptoms" value="fatigue">
+        <label for="fatigue">体のだるさ</label><br>
+        <input type="checkbox" id="brain_fog" name="additional_symptoms" value="brain_fog">
+        <label for="brain_fog">頭がボーっとする、すっきりしない</label><br>
+        <input type="checkbox" id="shoulder_stiffness" name="additional_symptoms" value="shoulder_stiffness">
+        <label for="shoulder_stiffness">肩こり</label><br>
+        <!-- 質問9: 追加質問 -->
+        <p>9. 症状が出現・悪化する原因やきっかけについて、心当たりのあるものを【全て】選んでください。</p>
+        <input type="checkbox" id="alcohol" name="triggers" value="alcohol">
+        <label for="alcohol">飲酒</label><br>
+        <input type="checkbox" id="overeating" name="triggers" value="overeating">
+        <label for="overeating">暴食</label><br>
+        <input type="checkbox" id="caffeine" name="triggers" value="caffeine">
+        <label for="caffeine">コーヒーなどのカフェイン摂取をしばらくやめた後</label><br>
+        <input type="checkbox" id="injury" name="triggers" value="injury">
+        <label for="injury">患部を強くぶつけた</label><br>
+        <input type="checkbox" id="exercise" name="triggers" value="exercise">
+        <label for="exercise">激しい運動</label><br>
+        <input type="checkbox" id="smell" name="triggers" value="smell">
+        <label for="smell">におい刺激</label><br>
+        <input type="checkbox" id="light" name="triggers" value="light">
+        <label for="light">光刺激</label><br>
+        <input type="checkbox" id="sound" name="triggers" value="sound">
+        <label for="sound">音刺激</label><br>
+        <input type="checkbox" id="morning" name="triggers" value="morning">
+        <label for="morning">朝方、起床時</label><br>
+        <input type="checkbox" id="night" name="triggers" value="night">
+        <label for="night">夜間</label><br>
+        <input type="checkbox" id="none" name="triggers" value="none">
+        <label for="none">この中に該当なし</label><br>
+        <input type="hidden" name="selected_triggers" id="selected_triggers" value="">
+        <script>
+            // トリガーボタンの選択状態を管理
+            const buttons = document.querySelectorAll('#triggers button');
+            const selectedTriggers = [];
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // 選択されているかどうかを確認し、選択状態を切り替える
+                    if (button.classList.contains('selected')) {
+                        button.classList.remove('selected');
+                        const index = selectedTriggers.indexOf(button.value);
+                        if (index > -1) {
+                            selectedTriggers.splice(index, 1);
+                        }
+                    } else {
+                        button.classList.add('selected');
+                        selectedTriggers.push(button.value);
+                    }
+                    // 選択されたトリガーをhiddenフィールドに設定
+                    document.getElementById('selected_triggers').value = selectedTriggers.join(',');
+                });
+            });
+        </script>
+        <input type="submit" value="診断する">
+    </form>
+</body>
+
+</html>
