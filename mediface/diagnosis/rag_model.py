@@ -9,7 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 # APIキーの登録
-os.environ["OPENAI_API_KEY"] = "Jz2KZ2cYf-cO5TpFvzVkujeVxkX7SNPzOep4UgYNogXc7BBwyQ8Ceu4aLwMP8-sgT1tPVQWRLcF5d1Fzo4xCoLw"
+os.environ["OPENAI_API_KEY"] = "__YOUR KEY__"
 
 # OpenAI APIベースURL
 url = "https://api.openai.iniad.org/api/v1/"

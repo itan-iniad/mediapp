@@ -3,7 +3,7 @@ import os
 import json
 
 #APIキーの登録
-os.environ["OPENAI_API_KEY"] = "Jz2KZ2cYf-cO5TpFvzVkujeVxkX7SNPzOep4UgYNogXc7BBwyQ8Ceu4aLwMP8-sgT1tPVQWRLcF5d1Fzo4xCoLw"
+os.environ["OPENAI_API_KEY"] = "__YOUR KEY__"
 
 # 環境変数からAPIキーを取得
 api_key = os.getenv('OPENAI_API_KEY')
